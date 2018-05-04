@@ -30,5 +30,14 @@ while(<FILE1>){
 	##if (/\b$i\b/){print $prefix[0],"\n";}##tambem funciona
         }close FILE1;
 }
+use Statistics::R;
 
+my @numbers = ( 1 .. 10 );
+
+my $R = Statistics::R->new();
+$R->set( 'x', \@numbers );
+$R->run( q`x = x ^ 2` );
+my $squares = $R->get('x');
+
+print "@$squares";
 
