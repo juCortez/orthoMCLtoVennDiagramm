@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 
 
-#Este script usa um arquivo lista ordenada como referencia para extrair a seguencia completa de um outro arquivo prank fasta
+#Este script usa os arquivos groups.txt e singletons.txt para construir diagrama de venn multidimensional!!!! 
  
 use strict;
 use warnings;
 use autodie; # die if problem reading or writing a file
 use Statistics::R;
-my @list=("Serg","Tbru","Lmajor","Tgrayi");
+my @list=("Serg","Tbru","Lmajor","Tgrayi");## liste seus organismos!!!!!
 my $R = Statistics::R->new();
 my $temp;
 my $counter = 0;
@@ -17,8 +17,8 @@ foreach my $i (@list){
 	$counter++;
 my @entries;
 my $file = "out".$i;
-open FILE1, $ARGV[0] or die $!; #lista
-open FILE2, $ARGV[1] or die $!; #prank fasta file
+open FILE1, $ARGV[0] or die $!; #groups.txt
+open FILE2, $ARGV[1] or die $!; #singletons.txt
 open (wFile, ">> $file") or die $!;
 while(<FILE1>){
         my @prefix = split(":",$_);
@@ -39,8 +39,4 @@ while(<FILE2>){
 my $z="v<-venn(list(".$temp."))";
 $R->run($z);
 
-# 	$R->set($i, \@entries);
-# }
-# $R->run(q'v<-venn(list(A=Serg,B=Tbru,C=Lmajor))');
-##########q'v<-venn(list(Serg = Serg,Tbru = Tbru,Lmajor = Lmajor))'
 ##------------------------------------------------------------------------
