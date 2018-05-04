@@ -2,7 +2,7 @@
 
 
 #Este script usa os arquivos groups.txt e singletons.txt para construir diagrama de venn multidimensional!!!! 
- 
+##A saida é um pdf Rplots.pdf!!!!fácil!!
 use strict;
 use warnings;
 use autodie; # die if problem reading or writing a file
