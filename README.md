@@ -2,6 +2,7 @@
 
 It takes the output from OrthoMCL, gives you the orthologous Venn Diagramm of species listed by you.
 
+sudo cpanm Statistics::R --force
 
 # input files
 
