@@ -6,22 +6,29 @@
 use strict;
 use warnings;
 use autodie; # die if problem reading or writing a file
+my @list=("Serg","Tbru","Lmajor");
 
-my $string="";
-
+foreach $i (@list){
 open FILE1, $ARGV[0] or die $!; #lista
-while(<FILE1>){	
-	my $position=0;
-	$string=$_;
-	open FILE2, $ARGV[1] or die $!; #prank fasta file
-	while(<FILE2>){
-		if($_ eq $string ){
-			$position++;
-			if($position==1){print $_;}			 
-		}else{
-			if(/^>/){$position=0;}
-			if($position==1){print $_;}
-			}
+open FILE2, $ARGV[1] or die $!; #prank fasta file
+while(<FILE1>){
+        print $_ if /\b$i\b/
+        }close FILE1;
+while(<FILE2>){
+		
 	}close FILE2;
-}close FILE1;
-exit;
+}
+##------------------------------------------------------------------------
+my @list=("Serg","Tbru","Lmajor");
+
+foreach my $i (@list){
+open FILE1, $ARGV[0] or die $!; #lista
+print $i,"\n";
+while(<FILE1>){
+        my @prefix = split(":",$_);
+        print $prefix[0],"\n" if /\b$i\b/
+	##if (/\b$i\b/){print $prefix[0],"\n";}##tambem funciona
+        }close FILE1;
+}
+
+
