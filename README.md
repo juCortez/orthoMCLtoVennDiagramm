@@ -10,13 +10,15 @@ groups.txt - this is the output from orthoMCL
 
 singletons.txt - this file is produced by running orthoMCL's orthomclSingletons and contains all genes that are contained in no groups
 
-families.txt - this file details which species are in which groups, first the name of the group, then the short handles that appear in groups.txt. Example:
+names.txt - ToDo!!!!
+
+ Example:
 
 # Running it
 
-python OrthoMCLtoVennDiagramm.py -h
+perl OrthoMCLtoVennDiagramm.perl -h
 
-usage: OrthoMCLtoVennDiagramm.py groups singletons families 
+usage: OrthoMCLtoVennDiagramm.perl groups.txt singletons.txt names.txt 
 
 # positional arguments:
     groups      -Path to groups.txt
@@ -24,5 +26,5 @@ usage: OrthoMCLtoVennDiagramm.py groups singletons families
     singletons  -Path to singletons file (use orthomclSingletons, part of
     orthomcl)
     
-    families    -Path to list file detailing groups of species/families
+    groupNames  -Path to list file detailing groups Names of interest
    
