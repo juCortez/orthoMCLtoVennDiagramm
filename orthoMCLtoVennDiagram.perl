@@ -13,6 +13,7 @@ my $temp;
 my $counter = 0;
 $R->send("library(gplots);");
 $R->send('library("venneuler");');
+$R->send('library("VennDiagram");');
 foreach my $i (@list){
 	$counter++;
 my @entries;
@@ -36,7 +37,9 @@ while(<FILE2>){
 	$R->set($i, \@entries);
 
 }
-my $z="v<-venn(list(".$temp."))";
-$R->run($z);
+my $gplots="v<-venn(list(".$temp."))";
+$R->run($gplots);
+my $vDiagram="vD<-venndiagram(list(".$temp."),fill=c(yellow,cyan,red),cex=1.5,filename=vD.png)";
+$R->run($vDiagram);
 
 ##------------------------------------------------------------------------
