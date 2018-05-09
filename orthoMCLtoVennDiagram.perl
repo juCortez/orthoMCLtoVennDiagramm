@@ -1,14 +1,12 @@
 #!/usr/bin/perl
-
-
 #Este script usa os arquivos groups.txt e singletons.txt para construir diagrama de venn multidimensional!!!! 
 ##A saida é um pdf Rplots.pdf!!!!fácil!!
 use strict;
 use warnings;
 use autodie; # die if problem reading or writing a file
 use Statistics::R;
-my @list=("Serg","Lmajor","Tgrayi");## liste seus organismos!!!!!
-my @colors=("green","cyan","yellow");## liste suas cores!!!!!
+my @list=("Lpyrr","Lmajor","Cfasciculata","Serg");## liste seus organismos!!!!!
+my @colors=("blue","cyan","yellow","grey");## liste suas cores!!!!!
 my $R = Statistics::R->new();
 my $temp;
 my $color;
