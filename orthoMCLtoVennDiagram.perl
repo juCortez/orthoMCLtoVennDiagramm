@@ -8,7 +8,7 @@ use warnings;
 use autodie; # die if problem reading or writing a file
 use Statistics::R;
 my @list=("Serg","Lmajor","Tgrayi");## liste seus organismos!!!!!
-my @colors=("green","red","yellow");## liste suas cores!!!!!
+my @colors=("green","cyan","yellow");## liste suas cores!!!!!
 my $R = Statistics::R->new();
 my $temp;
 my $color;
